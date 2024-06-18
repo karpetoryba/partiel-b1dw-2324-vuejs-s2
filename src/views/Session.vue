@@ -13,6 +13,7 @@
       <p><strong>Available Places:</strong> {{ session.available_places }}</p>
     </div>
     <button @click="confirmRegistration">Confirmation</button>
+    <button @click="downloadPdf">Download PDF</button>
     <p v-if="successMessage" class="success-message">
       L'inscription a été enregistrée avec succès.
     </p>
@@ -20,6 +21,8 @@
 </template>
 
 <script>
+import jsPDF from "jspdf";
+
 export default {
   data() {
     return {
@@ -53,8 +56,25 @@ export default {
   },
   methods: {
     confirmRegistration() {
-      // Here you can add any logic needed to handle the registration confirmation
       this.successMessage = true;
+    },
+    downloadPdf() {
+      const doc = new jsPDF();
+
+      doc.text("Session Details", 10, 10);
+      doc.text(`Date: ${this.session.date}`, 10, 20);
+      doc.text(
+        `Time: ${this.session.start_at} - ${this.session.end_at}`,
+        10,
+        30
+      );
+      doc.text(`Option: ${this.session.option}`, 10, 40);
+      doc.text(`Category: ${this.session.categories}`, 10, 50);
+      doc.text(`Age Category: ${this.session.age_category}`, 10, 60);
+      doc.text(`Registered: ${this.session.registered}`, 10, 70);
+      doc.text(`Available Places: ${this.session.available_places}`, 10, 80);
+
+      doc.save("session-details.pdf");
     },
   },
 };
@@ -74,8 +94,8 @@ export default {
 }
 
 button {
-  margin-top: 20px;
-  padding: 10px 20px;
+  margin: 20px;
+  padding: 20px 20px 20px 20px;
   background-color: #007bff;
   color: white;
   border: none;
