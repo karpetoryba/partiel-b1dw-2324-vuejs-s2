@@ -37,7 +37,7 @@
             </p>
           </div>
           <div class="ticket-action">
-            <RouterLink to="/readmore">View Details</RouterLink>
+            <RouterLink to="/session">Next step</RouterLink>
           </div>
         </div>
       </div>

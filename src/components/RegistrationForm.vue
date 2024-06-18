@@ -1,5 +1,5 @@
 <template>
-  <h1>Welcome to the OE</h1>
+  <h1>Welcome to the OJ</h1>
   <div class="registration-form">
     <h2>Registration Form</h2>
     <form @submit.prevent="submitForm">
