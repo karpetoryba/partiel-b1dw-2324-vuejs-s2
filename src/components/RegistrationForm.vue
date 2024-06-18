@@ -9,6 +9,11 @@
         <span v-if="errors.name">{{ errors.name }}</span>
       </div>
       <div>
+        <label for="name">Last Name:</label>
+        <input type="text" id="name" v-model="name" @input="validateName" />
+        <span v-if="errors.name">{{ errors.name }}</span>
+      </div>
+      <div>
         <label for="email">Email:</label>
         <input type="email" id="email" v-model="email" @input="validateEmail" />
         <span v-if="errors.email">{{ errors.email }}</span>
