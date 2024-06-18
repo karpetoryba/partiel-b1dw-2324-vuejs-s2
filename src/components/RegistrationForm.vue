@@ -27,7 +27,7 @@
         />
         <span v-if="errors.postalCode">{{ errors.postalCode }}</span>
       </div>
-      <button type="submit">S'inscrire</button>
+      <RouterLink to="/activitytable">S'inscrire</RouterLink>
     </form>
   </div>
 </template>

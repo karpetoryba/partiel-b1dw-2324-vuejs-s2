@@ -1,19 +1,12 @@
+<script setup>
+import { RouterLink, RouterView } from "vue-router";
+</script>
+
 <template>
   <div id="app">
-    <RegistrationForm />
+    <RouterView />
   </div>
 </template>
-
-<script>
-import RegistrationForm from "./components/RegistrationForm.vue";
-
-export default {
-  name: "App",
-  components: {
-    RegistrationForm,
-  },
-};
-</script>
 
 <style>
 #app {
