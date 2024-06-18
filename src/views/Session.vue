@@ -14,6 +14,7 @@
     </div>
     <button @click="confirmRegistration">Confirmation</button>
     <button @click="downloadPdf">Download PDF</button>
+    <button @click="goBack">Back</button>
     <p v-if="successMessage" class="success-message">
       L'inscription a été enregistrée avec succès.
     </p>
@@ -76,6 +77,9 @@ export default {
 
       doc.save("session-details.pdf");
     },
+    goBack() {
+      this.$router.go(-1); // Go back to the previous page
+    },
   },
 };
 </script>
@@ -96,7 +100,7 @@ export default {
 button {
   margin: 20px;
   padding: 10px 20px;
-  background-color: #007bff;
+  background-color: rgb(0, 138, 184);
   color: white;
   border: none;
   border-radius: 5px;
@@ -104,7 +108,7 @@ button {
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: rgb(0, 138, 184);
 }
 
 .success-message {

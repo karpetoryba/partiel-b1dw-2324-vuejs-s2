@@ -8,6 +8,7 @@
         <option value="Children">Children</option>
         <option value="Adults">Adults</option>
       </select>
+      <router-link to="/" class="back-button">Back</router-link>
     </div>
     <div
       v-for="activity in filteredActivities"
@@ -44,6 +45,7 @@
     </div>
   </div>
 </template>
+
 <script>
 export default {
   data() {
@@ -89,6 +91,7 @@ export default {
   },
 };
 </script>
+
 <style>
 .activity {
   margin-bottom: 40px;
@@ -161,16 +164,17 @@ export default {
   margin-right: 10px;
 }
 
-.sort-panel button {
-  background-color: #008cba;
+.sort-panel .back-button {
+  background-color: rgb(0, 138, 184);
   color: white;
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
+  text-decoration: none;
 }
 
-.sort-panel button:hover {
+.sort-panel .back-button:hover {
   background-color: #007bb5;
 }
 </style>
