@@ -1,9 +1,10 @@
 <template>
+  <h1>Welcome to the OE</h1>
   <div class="registration-form">
-    <h2>Formulaire d'inscription</h2>
+    <h2>Registration Form</h2>
     <form @submit.prevent="submitForm">
       <div>
-        <label for="name">Nom et prénom:</label>
+        <label for="name">Full Name:</label>
         <input type="text" id="name" v-model="name" @input="validateName" />
         <span v-if="errors.name">{{ errors.name }}</span>
       </div>
@@ -13,12 +14,12 @@
         <span v-if="errors.email">{{ errors.email }}</span>
       </div>
       <div>
-        <label for="phone">Téléphone:</label>
+        <label for="phone">Phone:</label>
         <input type="text" id="phone" v-model="phone" @input="validatePhone" />
         <span v-if="errors.phone">{{ errors.phone }}</span>
       </div>
       <div>
-        <label for="postalCode">Code postal de résidence:</label>
+        <label for="postalCode">Postal Code:</label>
         <input
           type="text"
           id="postalCode"
@@ -27,7 +28,7 @@
         />
         <span v-if="errors.postalCode">{{ errors.postalCode }}</span>
       </div>
-      <RouterLink to="/activitytable">S'inscrire</RouterLink>
+      <RouterLink to="/activitytable">Register</RouterLink>
     </form>
   </div>
 </template>
@@ -48,25 +49,25 @@ export default {
       const regex = /^[a-zA-Z\s]*$/;
       this.errors.name = regex.test(this.name)
         ? ""
-        : "Le nom et prénom ne doivent contenir que des lettres.";
+        : "Name must contain only letters.";
     },
     validateEmail() {
       const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       this.errors.email = regex.test(this.email)
         ? ""
-        : "L'email doit être au format nom@domaine.com.";
+        : "Email must be in the format name@domain.com.";
     },
     validatePhone() {
       const regex = /^\d{10}$/;
       this.errors.phone = regex.test(this.phone)
         ? ""
-        : "Le téléphone doit contenir 10 chiffres.";
+        : "Phone must contain 10 digits.";
     },
     validatePostalCode() {
       const regex = /^\d{5}$/;
       this.errors.postalCode = regex.test(this.postalCode)
         ? ""
-        : "Le code postal doit contenir 5 chiffres.";
+        : "Postal code must contain 5 digits.";
     },
     submitForm() {
       this.validateName();
